@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
     <!-- Add Google Fonts Here -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
 
     <title>Library</title>
 </head>
@@ -21,40 +21,21 @@
 <body>
 
     <!-- script -->
-<script>
-    function getBooks1(){
-        document.getElementById('output1').innerHTML="";
-        fetch("https://openlibrary.org/search.json?q="+document.getElementById("input1").value)
-        .then(a =>a.json())
-        .then(response=>{
-            for(var i=0; i<3; i++){
-                document.getElementById("output1").innerHTML+="<h2>"+response.docs[i].title+"</h2>"+response.docs[i].author_name+"<br><img src='https://covers.openlibrary.org/b/isbn/"+response.docs[i].isbn[0]+"-M.jpg'><br>";  }
-        });
-    }
-    function getBooks2(){
-        document.getElementById('output2').innerHTML="";
-        fetch("https://openlibrary.org/search.json?q="+document.getElementById("input2").value)
-        .then(a =>a.json())
-        .then(response=>{
-            for(var i=0; i<3; i++){
-                document.getElementById("output2").innerHTML+="<h2>"+response.docs[i].title+"</h2>"+response.docs[i].author_name+"<br><img src='https://covers.openlibrary.org/b/isbn/"+response.docs[i].isbn[0]+"-M.jpg'><br>";  }
-        });
-    }
-</script>
 
-<!-- layout -->
-<div class="container-fluid">
-    <div class="row" id="header">
-        <h1>
-            Library Search
-        </h1>
-    </div>
-
-    </div>
-</div>
-
+    <!-- layout -->
+    <!-- Header -->
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" id="header">
+            <h1>
+                Library Search
+            </h1>
+        </div>
+
+    </div>
+    </div>
+    <!-- Search -->
+    <div class="container-fluid" id="page-container">
+        <div class="row" id="content-wrap">
             <div class="col">
                 <input id="input1">
                 <button onClick="getBooks1()">Get List 1</button>
@@ -67,15 +48,23 @@
                 <button onClick="getBooks2()">Get List 2</button>
                 <div id="output2">
 
+                </div>
             </div>
+
         </div>
-    
-    </div>
+        <!-- Footer -->
+        <footer class="container-fluid" id="footer">
+
+            <h1>
+                Thanks for browsing!
+            </h1>
+        </footer>
 
 
 
-    <!-- Javascript Link -->
-    <script src="index.js"></script>
+
+        <!-- Javascript Link -->
+        <script src="index.js"></script>
 </body>
 
 </html>
